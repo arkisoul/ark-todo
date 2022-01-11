@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { CanActivateTodosGuard } from './can-activate-todos.guard';
-import { TodosResolver } from './todos.resolver';
+import { TodosResolver } from './resolvers/todos.resolver';
 import { TodosPageComponent } from './todos-page/todos-page.component';
 
 const routes: Routes = [
@@ -18,9 +18,9 @@ const routes: Routes = [
   {
     path: 'todos',
     component: TodosPageComponent,
-    canActivate: [
-      CanActivateTodosGuard
-    ],
+    // canActivate: [
+    //   CanActivateTodosGuard
+    // ],
     resolve: {
       todos: TodosResolver
     }

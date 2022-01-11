@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Todo } from './todo';
+import { Observable } from 'rxjs';
+
+import { Todo } from '../models/todo';
 import { ApiService } from './api.service';
-import { Observable } from 'rxjs/Observable';
 
-@Injectable()
+@Injectable({ providedIn: "root" })
 export class TodoDataService {
-
-  constructor(
-    private api: ApiService
-  ) {
-  }
+  constructor(private api: ApiService) {}
 
   // Simulate POST /todos
   addTodo(todo: Todo): Observable<Todo> {
@@ -17,7 +14,7 @@ export class TodoDataService {
   }
 
   // Simulate DELETE /todos/:id
-  deleteTodoById(todoId: number): Observable<Todo> {
+  deleteTodoById(todoId: number): Observable<{}> {
     return this.api.deleteTodoById(todoId);
   }
 
@@ -41,5 +38,4 @@ export class TodoDataService {
     todo.complete = !todo.complete;
     return this.api.updateTodo(todo);
   }
-
 }

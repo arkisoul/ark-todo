@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Todo } from '../todo';
+
+import { Todo } from '../models/todo';
 
 @Component({
   selector: 'app-todo-list-footer',
@@ -9,7 +10,7 @@ import { Todo } from '../todo';
 export class TodoListFooterComponent {
 
   @Input()
-  todos: Todo[];
+  todos!: Todo[];
 
   constructor() {
   }

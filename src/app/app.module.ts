@@ -8,13 +8,9 @@ import { AppComponent } from './app.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoListFooterComponent } from './todo-list-footer/todo-list-footer.component';
 import { TodoListHeaderComponent } from './todo-list-header/todo-list-header.component';
-import { TodoDataService } from './todo-data.service';
 import { TodoListItemComponent } from './todo-list-item/todo-list-item.component';
-import { ApiService } from './api.service';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { TodosComponent } from './todos/todos.component';
-import { AuthService } from './auth.service';
-import { SessionService } from './session.service';
 import { TodosPageComponent } from './todos-page/todos-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -37,12 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: [
-    ApiService,
-    AuthService,
-    SessionService,
-    TodoDataService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

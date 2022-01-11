@@ -4,7 +4,7 @@ import { TodosComponent } from './todos.component';
 import { FormsModule } from '@angular/forms';
 import { TodoDataService } from '../todo-data.service';
 import { ApiService } from '../api.service';
-import { ApiMockService } from '../api-mock.service';
+import { ApiMockService } from '../services/api-mock.service';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('TodosComponent', () => {

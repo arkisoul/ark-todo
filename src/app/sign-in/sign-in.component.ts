@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+
+import { ApiService } from '../services/api.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -23,7 +24,7 @@ export class SignInComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router
   ) {
-    this.frm = fb.group({
+    this.frm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
@@ -45,8 +46,8 @@ export class SignInComponent implements OnInit {
     this.hasFailed = false;
 
     // Grab values from form
-    const username = this.frm.get('username').value;
-    const password = this.frm.get('password').value;
+    const username = this.frm.get('username')?.value;
+    const password = this.frm.get('password')?.value;
 
     // Submit request to API
     this.api
@@ -54,7 +55,7 @@ export class SignInComponent implements OnInit {
       .subscribe(
         (response) => {
           this.auth.doSignIn(
-            response.idToken,
+            response.token,
             'Demo'
           );
           this.router.navigate(['todos']);

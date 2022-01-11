@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Todo } from '../todo';
+
+import { Todo } from '../models/todo';
 
 @Component({
   selector: 'app-todo-list-item',
@@ -8,7 +9,7 @@ import { Todo } from '../todo';
 })
 export class TodoListItemComponent {
 
-  @Input() todo: Todo;
+  @Input() todo!: Todo;
 
   @Output()
   remove: EventEmitter<Todo> = new EventEmitter();

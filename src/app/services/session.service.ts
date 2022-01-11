@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({ providedIn: "root" })
 export class SessionService {
+  public accessToken!: string | null;
+  public name!: string | null;
 
-  public accessToken: string;
-  public name: string;
-
-  constructor() {
-  }
+  constructor() {}
 
   public destroy(): void {
     this.accessToken = null;

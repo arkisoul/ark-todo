@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TodoDataService } from '../todo-data.service';
-import { Todo } from '../todo';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+
+import { Todo } from '../models/todo';
+import { TodoDataService } from '../services/todo-data.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-todos',
@@ -23,7 +24,7 @@ export class TodosComponent implements OnInit {
   public ngOnInit() {
   }
 
-  onAddTodo(todo) {
+  onAddTodo(todo: Todo) {
     if (!todo.title) {
       return;
     }
@@ -36,7 +37,7 @@ export class TodosComponent implements OnInit {
       );
   }
 
-  onToggleTodoComplete(todo) {
+  onToggleTodoComplete(todo: Todo) {
     this.todoDataService
       .toggleTodoComplete(todo)
       .subscribe(
@@ -46,7 +47,7 @@ export class TodosComponent implements OnInit {
       );
   }
 
-  onRemoveTodo(todo) {
+  onRemoveTodo(todo: Todo) {
     this.todoDataService
       .deleteTodoById(todo.id)
       .subscribe(

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Todo } from '../todo';
 import { ActivatedRoute } from '@angular/router';
+
+import { Todo } from '../models/todo';
 
 @Component({
   selector: 'app-todos-page',
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TodosPageComponent implements OnInit {
 
-  public todos$: Observable<Todo[]>;
+  public todos!: Todo[];
 
   constructor(
     private route: ActivatedRoute
@@ -18,8 +18,8 @@ export class TodosPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.todos$ = this.route.data
-      .map((data) => data['todos']);
+    console.log(this.route.snapshot.data)
+    this.todos = this.route.snapshot.data.todos;
   }
 
 }
