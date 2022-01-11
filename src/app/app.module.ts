@@ -16,6 +16,7 @@ import { TodosComponent } from './todos/todos.component';
 import { AuthService } from './auth.service';
 import { SessionService } from './session.service';
 import { TodosPageComponent } from './todos-page/todos-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TodosPageComponent } from './todos-page/todos-page.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     ApiService,
