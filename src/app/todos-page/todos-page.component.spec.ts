@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { TodosPageComponent } from './todos-page.component';
 
@@ -6,7 +6,7 @@ describe('TodosPageComponent', () => {
   let component: TodosPageComponent;
   let fixture: ComponentFixture<TodosPageComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ TodosPageComponent ]
     })
